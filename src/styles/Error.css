@@ -1,0 +1,25 @@
+.full-page {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+img {
+  max-width: 600px;
+  display: block;
+  margin-bottom: 2rem;
+}
+.err-title {
+  margin-bottom: 0.5rem;
+}
+.err_msg {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: rgb(195, 255, 0);
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
