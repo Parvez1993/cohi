@@ -143,7 +143,7 @@ export const StoreProvider = ({ children }) => {
     ) {
       setResults([
         {
-          img: "https://www.gannett-cdn.com/-mm-/82b6b1150bd689a0afad36594bff70d1bc302b30/c=0-425-4616-3033/local/-/media/2016/10/26/Phoenix/Phoenix/636130828004947333-Lou-Malnati-s.jpg",
+          img: "https://cdn.choosechicago.com/uploads/2019/06/AA_BeachFullerton_02-900x600.jpg",
           name: "Walk along the lake",
         },
       ]);
@@ -154,7 +154,7 @@ export const StoreProvider = ({ children }) => {
     ) {
       setResults([
         {
-          img: "https://cdn.pixabay.com/photo/2016/12/05/00/28/san-francisco-1882882_960_720.jpg",
+          img: "https://www.enjoyillinois.com/assets/Tourism-Operators/images/ChicagoCubs-RobertCampion.jpg",
           name: "Cubs Game at Wrigley Field",
         },
       ]);
@@ -165,12 +165,12 @@ export const StoreProvider = ({ children }) => {
     ) {
       setResults([
         {
-          img: "https://zerowastetraveldiary.com/images/resources/rainbow/IMG_7704.jpeg",
+          img: "https://en.wikipedia.org/wiki/Trader_Joe%27s#/media/File:Trader_Joes_in_Amherst,_NY_-_2018.jpg",
           name: "Trader Joes",
         },
       ]);
     }
-    //Chicago
+    //Toronto
     else if (
       type === "Indoor" &&
       category === "Dining" &&
@@ -178,7 +178,7 @@ export const StoreProvider = ({ children }) => {
     ) {
       setResults([
         {
-          img: "https://www.gannett-cdn.com/-mm-/82b6b1150bd689a0afad36594bff70d1bc302b30/c=0-425-4616-3033/local/-/media/2016/10/26/Phoenix/Phoenix/636130828004947333-Lou-Malnati-s.jpg",
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/St_Lawerence_South_Market_Exterior_202112.jpg/1280px-St_Lawerence_South_Market_Exterior_202112.jpg",
           name: "St. Lawrence Market",
         },
       ]);
@@ -189,7 +189,7 @@ export const StoreProvider = ({ children }) => {
     ) {
       setResults([
         {
-          img: "https://www.gannett-cdn.com/-mm-/82b6b1150bd689a0afad36594bff70d1bc302b30/c=0-425-4616-3033/local/-/media/2016/10/26/Phoenix/Phoenix/636130828004947333-Lou-Malnati-s.jpg",
+          img: "http://spinlister-blog.s3.amazonaws.com/2016/06/Randalls-Island-Park-8.jpg",
           name: "Bike Ward's Island",
         },
       ]);
@@ -200,7 +200,7 @@ export const StoreProvider = ({ children }) => {
     ) {
       setResults([
         {
-          img: "https://cdn.pixabay.com/photo/2016/12/05/00/28/san-francisco-1882882_960_720.jpg",
+          img: "https://cms.nhl.bamgrid.com/images/photos/325037104/1024x576/cut.jpg",
           name: "Maple Leaves Game",
         },
       ]);
@@ -211,7 +211,7 @@ export const StoreProvider = ({ children }) => {
     ) {
       setResults([
         {
-          img: "https://zerowastetraveldiary.com/images/resources/rainbow/IMG_7704.jpeg",
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Loblaws_in_Heartland_Town_Centre_interior_2021.jpg/1280px-Loblaws_in_Heartland_Town_Centre_interior_2021.jpg",
           name: "Loblaws",
         },
       ]);

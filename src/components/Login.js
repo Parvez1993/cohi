@@ -18,7 +18,11 @@ function Login() {
   //setFields
 
   const handleSubmit = (e) => {
-    console.log("hello");
+    if (isMember) {
+      console.log("hello");
+    } else {
+      console.log("hello2");
+    }
   };
 
   console.log(isMember);
@@ -39,18 +43,22 @@ function Login() {
                             ? "Welcome Back !"
                             : "Please fill the confirm"}
                         </h2>
-                        <div className="form-floating mb-3">
-                          <input
-                            type="text"
-                            name="name"
-                            className="form-control"
-                            id="floatingInput"
-                            required
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                          />
-                          <label for="floatingInput">Name</label>
-                        </div>
+                        {!isMember ? (
+                          <div className="form-floating mb-3">
+                            <input
+                              type="text"
+                              name="name"
+                              className="form-control"
+                              id="floatingInput"
+                              required
+                              value={name}
+                              onChange={(e) => setName(e.target.value)}
+                            />
+                            <label for="floatingInput">Name</label>
+                          </div>
+                        ) : (
+                          ""
+                        )}
                         <div className="form-floating mb-3">
                           <input
                             type="email"
@@ -198,7 +206,7 @@ function Login() {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-sm">
-              <h3>Enter your registered email address.</h3>
+              <h5>Enter your registered email address and check your mail.</h5>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
