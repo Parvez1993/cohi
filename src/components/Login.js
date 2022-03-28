@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "../styles/Login.css";
 import { Container } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
+import { useStore } from "../Contextapi";
 function Login() {
+  const { user, setUser } = useStore();
   const [isMember, setIsMember] = useState(true);
   //this is to trigger Forgot Password Modal
   const [smShow, setSmShow] = useState(false);

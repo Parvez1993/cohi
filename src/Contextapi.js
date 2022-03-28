@@ -13,6 +13,8 @@ export const StoreProvider = ({ children }) => {
       return "";
     }
   };
+
+  const [user, setUser] = useState("");
   const [personality, setPersonality] = useState("Introvert");
   const [type, setType] = useState("Indoor");
   const [category, setCategory] = useState("Dining");
@@ -232,6 +234,8 @@ export const StoreProvider = ({ children }) => {
     setLocation,
     handleMatch,
     results,
+    user,
+    setUser,
   };
   return (
     <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
