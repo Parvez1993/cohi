@@ -5,6 +5,17 @@ input[type="radio"] {
   width: 20px;
   height: 20px;
 }
+label {
+  font-size: 1.1rem !important;
+}
+
+/* .custom_card_img {
+  transform: scale(0.9);
+} */
+
+.custom_card_img img {
+  transform: scale(0.9);
+}
 
 .card_style {
   background: transparent !important;

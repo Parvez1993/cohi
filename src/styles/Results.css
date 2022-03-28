@@ -1,0 +1,12 @@
+.result_img {
+  height: 400px !important;
+  object-fit: cover;
+}
+
+.result_container {
+  display: flex !important;
+  flex-direction: column;
+  height: 80vh !important;
+  align-items: center;
+  justify-content: center;
+}

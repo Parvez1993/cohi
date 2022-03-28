@@ -6,15 +6,30 @@ import event from "../images/event.svg";
 import eventType from "../images/eventType.svg";
 import "../styles/Questionaries.css";
 import { useStore } from "../Contextapi.js";
+import { useNavigate } from "react-router-dom";
 
 function Questionaries() {
   const { setPersonality, setType, setCategory, setLocation, handleMatch } =
     useStore();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await handleMatch();
+    setPersonality("Introvert");
+    setType("Indoor");
+    setCategory("Dining");
+    setLocation("Austin");
+    navigate("/results");
+  };
   return (
     <Container>
       <Row>
         <Col sm={12} md={6} lg={3} className="my-4">
-          <Card style={{ height: "100%" }} className="card_style">
+          <Card
+            style={{ height: "100%" }}
+            className="card_style custom_card_img"
+          >
             <Card.Img variant="top" src={personality} alt="img" />
             <Card.Body>
               <Card.Title>
@@ -31,7 +46,7 @@ function Questionaries() {
                   defaultChecked
                   onChange={(e) => setPersonality(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Introvert</label>
+                <label className="mx-2">Introvert</label>
               </div>
               <div className="radio d-flex align-items-center">
                 <input
@@ -40,14 +55,17 @@ function Questionaries() {
                   value="Extrovert "
                   onChange={(e) => setPersonality(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Extrovert</label>
+                <label className="mx-2 ">Extrovert</label>
               </div>
             </Card.Body>
           </Card>
         </Col>
 
         <Col sm={12} md={6} lg={3} className="my-4">
-          <Card style={{ height: "100%" }} className="card_style">
+          <Card
+            style={{ height: "100%" }}
+            className="card_style custom_card_img"
+          >
             <Card.Img variant="top" src={location} alt="img" />
             <Card.Body>
               <Card.Title>
@@ -64,7 +82,7 @@ function Questionaries() {
                   value="Austin"
                   onChange={(e) => setLocation(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Austin</label>
+                <label className="mx-2 ">Austin</label>
               </div>
               <div className="radio d-flex align-items-center">
                 <input
@@ -73,7 +91,7 @@ function Questionaries() {
                   value="San Francisco"
                   onChange={(e) => setLocation(e.target.value)}
                 />
-                <label className="mx-2 fs-4">San Francisco</label>
+                <label className="mx-2 ">San Francisco</label>
               </div>
               <div className="radio d-flex align-items-center">
                 <input
@@ -82,7 +100,7 @@ function Questionaries() {
                   value="Chicago"
                   onChange={(e) => setLocation(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Chicago</label>
+                <label className="mx-2 ">Chicago</label>
               </div>
               <div className="radio d-flex align-items-center">
                 <input
@@ -91,14 +109,17 @@ function Questionaries() {
                   value="Toronto"
                   onChange={(e) => setLocation(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Toronto</label>
+                <label className="mx-2 ">Toronto</label>
               </div>
             </Card.Body>
           </Card>
         </Col>
 
         <Col sm={12} md={6} lg={3} className="my-4">
-          <Card style={{ height: "100%" }} className="card_style">
+          <Card
+            style={{ height: "100%" }}
+            className="card_style custom_card_img"
+          >
             <Card.Img variant="top" src={event} alt="img" />
             <Card.Body>
               <Card.Title>
@@ -115,7 +136,7 @@ function Questionaries() {
                   onChange={(e) => setType(e.target.value)}
                   defaultChecked
                 />
-                <label className="mx-2 fs-4">Indoor</label>
+                <label className="mx-2 ">Indoor</label>
               </div>
               <div className="radio d-flex align-items-center">
                 <input
@@ -124,14 +145,17 @@ function Questionaries() {
                   value="Outdoors"
                   onChange={(e) => setType(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Outdoor</label>
+                <label className="mx-2 ">Outdoor</label>
               </div>
             </Card.Body>
           </Card>
         </Col>
 
         <Col sm={12} md={6} lg={3} className="my-4">
-          <Card style={{ height: "100%" }} className="card_style">
+          <Card
+            style={{ height: "100%" }}
+            className="card_style custom_card_img"
+          >
             <Card.Img variant="top" src={eventType} alt="img" />
             <Card.Body>
               <Card.Title>
@@ -149,7 +173,7 @@ function Questionaries() {
                   value="Dining"
                   onChange={(e) => setCategory(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Dining</label>
+                <label className="mx-2 ">Dining</label>
               </div>
               <div className="radio d-flex align-items-center">
                 <input
@@ -158,7 +182,7 @@ function Questionaries() {
                   value="Fitness"
                   onChange={(e) => setCategory(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Fitness</label>
+                <label className="mx-2 ">Fitness</label>
               </div>
               <div className="radio d-flex align-items-center">
                 <input
@@ -167,7 +191,7 @@ function Questionaries() {
                   value="Sports"
                   onChange={(e) => setCategory(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Sports</label>
+                <label className="mx-2 ">Sports</label>
               </div>
               <div className="radio d-flex align-items-center">
                 <input
@@ -176,7 +200,7 @@ function Questionaries() {
                   value="Grocery Shopping"
                   onChange={(e) => setCategory(e.target.value)}
                 />
-                <label className="mx-2 fs-4">Grocery Shopping</label>
+                <label className="mx-2 ">Grocery Shopping</label>
               </div>
             </Card.Body>
           </Card>
@@ -185,7 +209,7 @@ function Questionaries() {
           <button
             className="glow-on-hover my-4"
             type="button"
-            onClick={handleMatch}
+            onClick={handleSubmit}
           >
             FIND MY MATCHES
           </button>

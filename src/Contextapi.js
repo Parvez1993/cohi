@@ -1,17 +1,32 @@
-import React, { useContext, useState } from "react";
-
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 //step 1
 
 export const StoreContext = React.createContext();
 
 export const StoreProvider = ({ children }) => {
+  const getLocalStorage = () => {
+    let results = localStorage.getItem("results");
+    if (results) {
+      return JSON.parse(localStorage.getItem("results"));
+    } else {
+      return "";
+    }
+  };
   const [personality, setPersonality] = useState("Introvert");
   const [type, setType] = useState("Indoor");
   const [category, setCategory] = useState("Dining");
   const [location, setLocation] = useState("Austin");
   const [alert, setAlert] = useState("");
-  const [results, setResults] = useState("");
+  const [results, setResults] = useState(getLocalStorage());
+
   console.log("results", results);
+
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("results", JSON.stringify(results));
+  }, [results]);
+
   const handleMatch = () => {
     if ((!type, !personality, !category, !location)) {
       setAlert("Please select the options to proceed");
@@ -203,7 +218,8 @@ export const StoreProvider = ({ children }) => {
     } else {
       setResults([
         {
-          name: "Sorry! No Result Found",
+          img: "https://cdn.pixabay.com/photo/2020/04/22/18/22/excuse-me-5079442_960_720.jpg",
+          name: "Sorry! No Matches Found. Try Again",
         },
       ]);
     }
@@ -215,6 +231,7 @@ export const StoreProvider = ({ children }) => {
     setCategory,
     setLocation,
     handleMatch,
+    results,
   };
   return (
     <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
