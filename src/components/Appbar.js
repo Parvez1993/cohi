@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 function Appbar() {
   return (
     <>
-      <Navbar>
+      <Navbar className="app">
         <Container>
           <Navbar.Brand href="#home" className="text-white">
             <h2>Cahi</h2>

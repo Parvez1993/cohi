@@ -7,7 +7,19 @@ function Login() {
   //this is to trigger Forgot Password Modal
   const [smShow, setSmShow] = useState(false);
 
+  let [name, setName] = useState("");
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
+  let [confirmPassword, setConfirmPassword] = useState("");
+  let [age, setAge] = useState("");
+  let [gender, setGender] = useState("Male");
+
+  console.log(name, email, password, confirmPassword, age, gender);
   //setFields
+
+  const handleSubmit = (e) => {
+    console.log("hello");
+  };
 
   console.log(isMember);
   return (
@@ -29,21 +41,38 @@ function Login() {
                         </h2>
                         <div className="form-floating mb-3">
                           <input
-                            type="email"
+                            type="text"
+                            name="name"
                             className="form-control"
                             id="floatingInput"
-                            placeholder="name@example.com"
                             required
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                          />
+                          <label for="floatingInput">Name</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                          <input
+                            type="email"
+                            name="email"
+                            className="form-control"
+                            id="floatingInput"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                           />
                           <label for="floatingInput">Email address</label>
                         </div>
                         <div className="form-floating mb-3">
                           <input
                             type="password"
+                            name="password"
                             className="form-control"
                             id="floatingPassword"
                             placeholder="Password"
                             required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                           />
                           <label for="floatingPassword">Password</label>
                         </div>
@@ -54,8 +83,13 @@ function Login() {
                               type="password"
                               className="form-control"
                               id="confirmPasswordPassword"
+                              name="confirmPassword"
                               placeholder="Confirm Password"
                               required
+                              value={confirmPassword}
+                              onChange={(e) =>
+                                setConfirmPassword(e.target.value)
+                              }
                             />
                             <label for="confirmPasswordPassword">
                               Confirm Password
@@ -71,8 +105,11 @@ function Login() {
                               type="number"
                               className="form-control"
                               id="age"
+                              name="age"
                               placeholder="Enter Age"
                               required
+                              value={age}
+                              onChange={(e) => setAge(e.target.value)}
                             />
                             <label for="age">Enter Age</label>
                           </div>
@@ -89,6 +126,7 @@ function Login() {
                                 name="Male"
                                 value="Male"
                                 defaultChecked
+                                onChange={(e) => setGender(e.target.value)}
                               />
                               <label className="mx-2 fs-5">Male</label>
                             </div>
@@ -96,7 +134,8 @@ function Login() {
                               <input
                                 type="radio"
                                 name="Female"
-                                value="Female "
+                                value="Female"
+                                onChange={(e) => setGender(e.target.value)}
                               />
                               <label className="mx-2 fs-5">Female</label>
                             </div>
@@ -117,8 +156,11 @@ function Login() {
                         )}
 
                         <div className="d-grid">
-                          <button className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-2">
-                            Sign in
+                          <button
+                            className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-2"
+                            onClick={handleSubmit}
+                          >
+                            {isMember ? "Sign In" : "Register"}
                           </button>
 
                           <div className="text-center mt-4" variant="warning">

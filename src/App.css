@@ -25,3 +25,8 @@ h6 {
     background-position: 0% 50%;
   }
 }
+
+/* //app bar styling */
+.app {
+  background: rgba(0, 0, 0, 0.082);
+}

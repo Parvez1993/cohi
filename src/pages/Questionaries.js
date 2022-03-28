@@ -24,7 +24,7 @@ function Questionaries() {
   };
   return (
     <Container>
-      <Row>
+      <Row className="my-5">
         <Col sm={12} md={6} lg={3} className="my-4">
           <Card
             style={{ height: "100%" }}
