@@ -7,6 +7,8 @@ function Login() {
   //this is to trigger Forgot Password Modal
   const [smShow, setSmShow] = useState(false);
 
+  //setFields
+
   console.log(isMember);
   return (
     <>
@@ -31,6 +33,7 @@ function Login() {
                             className="form-control"
                             id="floatingInput"
                             placeholder="name@example.com"
+                            required
                           />
                           <label for="floatingInput">Email address</label>
                         </div>
@@ -40,6 +43,7 @@ function Login() {
                             className="form-control"
                             id="floatingPassword"
                             placeholder="Password"
+                            required
                           />
                           <label for="floatingPassword">Password</label>
                         </div>
@@ -47,14 +51,55 @@ function Login() {
                         {!isMember ? (
                           <div className="form-floating mb-3">
                             <input
-                              type="confirmPassword"
+                              type="password"
                               className="form-control"
                               id="confirmPasswordPassword"
                               placeholder="Confirm Password"
+                              required
                             />
                             <label for="confirmPasswordPassword">
                               Confirm Password
                             </label>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+
+                        {!isMember ? (
+                          <div className="form-floating mb-3">
+                            <input
+                              type="number"
+                              className="form-control"
+                              id="age"
+                              placeholder="Enter Age"
+                              required
+                            />
+                            <label for="age">Enter Age</label>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+
+                        {!isMember ? (
+                          <div className="form-floating mb-3 text-white">
+                            <p>Choose Your Gender</p>
+                            <div className="radio d-flex align-items-center">
+                              <input
+                                type="radio"
+                                name="Male"
+                                value="Male"
+                                defaultChecked
+                              />
+                              <label className="mx-2 fs-5">Male</label>
+                            </div>
+                            <div className="radio d-flex align-items-center">
+                              <input
+                                type="radio"
+                                name="Female"
+                                value="Female "
+                              />
+                              <label className="mx-2 fs-5">Female</label>
+                            </div>
                           </div>
                         ) : (
                           ""
@@ -78,7 +123,9 @@ function Login() {
 
                           <div className="text-center mt-4" variant="warning">
                             <h5 className="fw-4 text-white">
-                              Not a Member ?
+                              {isMember
+                                ? "Not a Member ?"
+                                : "Already Have an Account?"}
                               <span
                                 onClick={() => setIsMember(!isMember)}
                                 style={{ cursor: "pointer", color: "purple" }}
@@ -97,6 +144,9 @@ function Login() {
             </div>
           </div>
         </div>
+
+        {/* //////////////////////////forget password Modal////////////////// */}
+
         <Modal
           size="lg"
           show={smShow}
