@@ -207,7 +207,7 @@ function Login() {
                               <div className="radio d-flex align-items-center">
                                 <input
                                   type="radio"
-                                  name="Male"
+                                  name="gender"
                                   value="Male"
                                   defaultChecked
                                   onChange={(e) => setGender(e.target.value)}
@@ -217,7 +217,7 @@ function Login() {
                               <div className="radio d-flex align-items-center">
                                 <input
                                   type="radio"
-                                  name="Female"
+                                  name="gender"
                                   value="Female"
                                   onChange={(e) => setGender(e.target.value)}
                                 />
