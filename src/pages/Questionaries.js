@@ -19,8 +19,6 @@ function Questionaries() {
     user,
   } = useStore();
 
-  console.log("qustions", results);
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {

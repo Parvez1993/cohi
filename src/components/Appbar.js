@@ -9,7 +9,6 @@ import { auth } from "../utility/firebase";
 function Appbar() {
   const navigate = useNavigate();
   const { setUser, user } = useStore();
-  console.log(user);
   const logoutUser = async () => {
     setUser("");
     await auth.signOut();

@@ -25,13 +25,11 @@ export const StoreProvider = ({ children }) => {
 
   useEffect(() => {
     auth.onAuthStateChanged((result) => {
-      console.log("result 12", result.uid);
       if (result) {
         db.collection("User")
           .doc(result.uid)
           .get()
           .then((querySnapshot) => {
-            console.log("aUTO LOG IN", querySnapshot.data());
             setUser(querySnapshot.data());
           });
       }

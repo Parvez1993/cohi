@@ -23,7 +23,6 @@ function Results() {
     db.collection("User")
       .get()
       .then((querySnapshot) => {
-        console.log(j.length);
         querySnapshot.forEach((doc) => {
           if (doc.data().id !== e) {
             if (
@@ -83,7 +82,6 @@ function Results() {
     navigate("/");
   }
 
-  console.log("results", results);
   return (
     <>
       {results ? (
