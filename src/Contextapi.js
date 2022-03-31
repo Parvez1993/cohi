@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 //step 1
+import { db, auth } from "./utility/firebase";
 
 export const StoreContext = React.createContext();
 
@@ -19,19 +19,46 @@ export const StoreProvider = ({ children }) => {
   const [type, setType] = useState("Indoor");
   const [category, setCategory] = useState("Dining");
   const [location, setLocation] = useState("Austin");
-  const [alert, setAlert] = useState("");
+  const [alert, setAlert] = useState(false);
   const [results, setResults] = useState(getLocalStorage());
+  const [msg, setMsg] = useState("");
 
-  console.log("results", results);
-
+  useEffect(() => {
+    auth.onAuthStateChanged((result) => {
+      console.log("result 12", result.uid);
+      if (result) {
+        db.collection("User")
+          .doc(result.uid)
+          .get()
+          .then((querySnapshot) => {
+            console.log("aUTO LOG IN", querySnapshot.data());
+            setUser(querySnapshot.data());
+          });
+      }
+    });
+  }, [setUser]);
   useEffect(() => {
     // storing input name
     localStorage.setItem("results", JSON.stringify(results));
   }, [results]);
 
+  //hide messages //////////////////////////////////////
+
+  //hide messages
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      // After 3 seconds set the show value to false
+      setMsg("");
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeId);
+    };
+  }, [msg]);
+
   const handleMatch = () => {
     if ((!type, !personality, !category, !location)) {
-      setAlert("Please select the options to proceed");
+      setMsg("Please select the options to proceed");
     }
     if (type === "Indoor" && category === "Dining" && location === "Austin") {
       setResults([
@@ -234,8 +261,13 @@ export const StoreProvider = ({ children }) => {
     setLocation,
     handleMatch,
     results,
+    setResults,
     user,
     setUser,
+    alert,
+    setAlert,
+    msg,
+    setMsg,
   };
   return (
     <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
