@@ -112,36 +112,40 @@ function Results() {
                           {name}
                         </p>
                       </Card.Title>
-                      <div>
-                        <p>Buddies with Similar Interests</p>
-                        {match.map((item, k) => {
-                          return (
-                            <OverlayTrigger
-                              trigger={["hover", "hover"]}
-                              placement="top"
-                              key={k}
-                              overlay={
-                                <Popover id={`popover-positioned-right`}>
-                                  <Popover.Body>
-                                    <h6>name: {item.name}</h6>
-                                    <p>email: {item.email}</p>
-                                    <p>age: {item.age}</p>
-                                  </Popover.Body>
-                                </Popover>
-                              }
-                            >
-                              <h5 className="text-black text-left">
-                                {item.name}
-                              </h5>
-                            </OverlayTrigger>
-                          );
-                        })}
-                      </div>
                     </Card.Body>
                   </Card>
                 </Col>
               );
             })}
+          </Row>
+          <Row>
+            <Col>
+              <div>
+                <p>Buddies with Similar Interests</p>
+                {match
+                  ? match.map((item, k) => {
+                      return (
+                        <OverlayTrigger
+                          trigger={["hover", "hover"]}
+                          placement="top"
+                          key={k}
+                          overlay={
+                            <Popover id={`popover-positioned-right`}>
+                              <Popover.Body>
+                                <h6>name: {item.name}</h6>
+                                <p>email: {item.email}</p>
+                                <p>age: {item.age}</p>
+                              </Popover.Body>
+                            </Popover>
+                          }
+                        >
+                          <h5 className="text-black text-left">{item.name}</h5>
+                        </OverlayTrigger>
+                      );
+                    })
+                  : "No Buddies Found"}
+              </div>
+            </Col>
           </Row>
 
           <Row>

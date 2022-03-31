@@ -5,6 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import { useStore } from "../Contextapi";
 import { db, auth } from "../utility/firebase";
 import { Navigate, useNavigate } from "react-router-dom";
+import firebase from "firebase/compat/app";
 
 function Login() {
   const { user, setUser, msg, setMsg } = useStore();
@@ -18,13 +19,27 @@ function Login() {
   let [age, setAge] = useState("");
   let [gender, setGender] = useState("Male");
   const navigate = useNavigate();
+  let [recoverpass, setRecoverpass] = useState("");
 
-  console.log(name, email, password, confirmPassword, age, gender);
   //setFields
 
   if (user) {
     navigate("/survey");
   }
+
+  const forgetPassowrt = (e) => {
+    e.preventDefault();
+    setSmShow(false);
+    firebase
+      .auth()
+      .sendPasswordResetEmail(recoverpass)
+      .then(() => {
+        setMsg("Please Check your email");
+      })
+      .catch((error) => {
+        setMsg(error);
+      });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -232,7 +247,9 @@ function Login() {
                               {isMember ? "Sign In" : "Register"}
                             </button>
 
-                            {!isMember ? (
+                            {/* //with google */}
+
+                            {/* {!isMember ? (
                               <div
                                 className="d-flex align-items-center gap-3 p-2 bg-white text-uppercase fw-bold rounded"
                                 style={{ cursor: "pointer" }}
@@ -250,7 +267,7 @@ function Login() {
                               </div>
                             ) : (
                               ""
-                            )}
+                            )} */}
 
                             <div className="text-center mt-4" variant="warning">
                               <h5 className="fw-4 text-white">
@@ -300,10 +317,14 @@ function Login() {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  onChange={(e) => setRecoverpass(e.target.value)}
                 />
                 <label for="floatingInput">Email address</label>
               </div>
-              <button className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-2">
+              <button
+                onClick={forgetPassowrt}
+                className="btn btn-lg btn-success btn-login text-uppercase fw-bold mb-2"
+              >
                 Confirm
               </button>
             </Modal.Body>
