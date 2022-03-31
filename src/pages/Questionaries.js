@@ -15,7 +15,6 @@ function Questionaries() {
     setCategory,
     setLocation,
     handleMatch,
-    results,
     user,
   } = useStore();
 

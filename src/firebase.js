@@ -8,7 +8,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 const firebaseConfig = {
-  apiKey: "AIzaSyBC4kSOhRUOtQUJoN3lG6UcWkDVSoUSjLk",
+  apiKey: process.env.API_KEY,
   authDomain: "cahi-29652.firebaseapp.com",
   projectId: "cahi-29652",
   storageBucket: "cahi-29652.appspot.com",
